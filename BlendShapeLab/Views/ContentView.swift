@@ -53,18 +53,7 @@ struct ContentView: View {
   private var sidebar: some View {
     @Bindable var model = model
     return VStack(alignment: .leading, spacing: 12) {
-      HStack(spacing: 8) {
-        Button("Open…") { model.isFileImporterPresented = true }
-          .keyboardShortcut("o", modifiers: [.command])
-
-        Button("Reload") { model.reload() }
-          .disabled(model.modelURL == nil)
-
-        Button("Reset All") { model.resetAllBlendWeights() }
-          .disabled(!model.hasAnyBlendShapes)
-
-        Spacer()
-      }
+      ToolbarView()
 
       if let url = model.modelURL {
         Text(url.lastPathComponent)
@@ -86,19 +75,14 @@ struct ContentView: View {
 
       Divider()
 
-      List(model.filteredBlendShapeNames, id: \.self, selection: $model.selectedBlendShapeName) {
-        name in
-        Text(name)
-          .font(.system(.body, design: .monospaced))
-      }
+      BlendShapeListView()
     }
     .padding(12)
     .frame(minWidth: 320)
   }
 
   private var detail: some View {
-    @Bindable var model = model
-    return ZStack(alignment: .topLeading) {
+    ZStack(alignment: .topLeading) {
       SceneView(
         scene: model.scene,
         options: [.allowsCameraControl, .autoenablesDefaultLighting]
@@ -106,48 +90,10 @@ struct ContentView: View {
       .ignoresSafeArea()
 
       if model.modelURL == nil {
-        VStack(alignment: .leading, spacing: 8) {
-          Text("BlendShapeLab")
-            .font(.title2.bold())
-          Text("Open a USDZ/USD file, then select a blendshape and move the slider.")
-            .foregroundStyle(.secondary)
-        }
-        .padding(16)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .padding(16)
+        WelcomeOverlay()
       }
 
-      if let name = model.selectedBlendShapeName {
-        VStack(alignment: .leading, spacing: 10) {
-          Text(name)
-            .font(.system(.body, design: .monospaced))
-            .lineLimit(1)
-
-          HStack(spacing: 10) {
-            Slider(value: $model.sliderValue, in: 0...1, step: 0.01)
-            Text(String(format: "%.2f", model.sliderValue))
-              .font(.system(.body, design: .monospaced))
-              .frame(width: 56, alignment: .trailing)
-
-            Button("0") { model.sliderValue = 0 }
-              .buttonStyle(.bordered)
-            Button("1") { model.sliderValue = 1 }
-              .buttonStyle(.bordered)
-          }
-
-          Toggle("Sweep", isOn: $model.isSweepEnabled)
-            .toggleStyle(.switch)
-
-          Text("targets: \(model.selectedTargetsCount)")
-            .font(.footnote)
-            .foregroundStyle(.secondary)
-        }
-        .padding(14)
-        .background(.ultraThinMaterial)
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .padding(16)
-      }
+      BlendShapeControlPanel()
     }
   }
 
