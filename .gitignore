@@ -25,3 +25,6 @@ Carthage/Build/
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+# Build Server Protocol
+buildServer.json
