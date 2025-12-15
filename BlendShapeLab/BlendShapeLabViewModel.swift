@@ -6,20 +6,22 @@
 //
 
 import Foundation
+import Observation
 import SceneKit
 
 @MainActor
-final class BlendShapeLabViewModel: ObservableObject {
-  @Published var scene: SCNScene = SCNScene()
-  @Published var modelURL: URL?
-  @Published var errorMessage: String?
+@Observable
+final class BlendShapeLabViewModel {
+  var scene: SCNScene = SCNScene()
+  var modelURL: URL?
+  var errorMessage: String?
 
-  @Published var isFileImporterPresented = false
-  @Published var searchText: String = ""
+  var isFileImporterPresented = false
+  var searchText: String = ""
 
-  @Published var isSoloMode: Bool = true
+  var isSoloMode: Bool = true
 
-  @Published var isSweepEnabled: Bool = false {
+  var isSweepEnabled: Bool = false {
     didSet {
       if oldValue != isSweepEnabled {
         sweepStateDidChange()
@@ -27,7 +29,7 @@ final class BlendShapeLabViewModel: ObservableObject {
     }
   }
 
-  @Published var selectedBlendShapeName: String? {
+  var selectedBlendShapeName: String? {
     didSet {
       guard oldValue != selectedBlendShapeName else { return }
       sliderValue = 0
@@ -37,7 +39,7 @@ final class BlendShapeLabViewModel: ObservableObject {
     }
   }
 
-  @Published var sliderValue: Double = 0 {
+  var sliderValue: Double = 0 {
     didSet {
       applySelectedBlendShapeWeight(Float(sliderValue))
     }

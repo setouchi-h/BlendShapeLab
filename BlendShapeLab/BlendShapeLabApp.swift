@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct BlendShapeLabApp: App {
-  @StateObject private var model = BlendShapeLabViewModel()
+  @State private var model = BlendShapeLabViewModel()
 
   var body: some Scene {
     WindowGroup {
       ContentView()
-        .environmentObject(model)
+        .environment(model)
     }
     .commands {
       CommandGroup(replacing: .newItem) {

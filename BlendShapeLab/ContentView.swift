@@ -10,10 +10,11 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 struct ContentView: View {
-  @EnvironmentObject private var model: BlendShapeLabViewModel
+  @Environment(BlendShapeLabViewModel.self) private var model
   @State private var isDropTargeted = false
 
   var body: some View {
+    @Bindable var model = model
     NavigationSplitView {
       sidebar
     } detail: {
@@ -50,7 +51,8 @@ struct ContentView: View {
   }
 
   private var sidebar: some View {
-    VStack(alignment: .leading, spacing: 12) {
+    @Bindable var model = model
+    return VStack(alignment: .leading, spacing: 12) {
       HStack(spacing: 8) {
         Button("Open…") { model.isFileImporterPresented = true }
           .keyboardShortcut("o", modifiers: [.command])
@@ -95,7 +97,8 @@ struct ContentView: View {
   }
 
   private var detail: some View {
-    ZStack(alignment: .topLeading) {
+    @Bindable var model = model
+    return ZStack(alignment: .topLeading) {
       SceneView(
         scene: model.scene,
         options: [.allowsCameraControl, .autoenablesDefaultLighting]
@@ -189,5 +192,5 @@ struct ContentView: View {
 
 #Preview {
   ContentView()
-    .environmentObject(BlendShapeLabViewModel())
+    .environment(BlendShapeLabViewModel())
 }
