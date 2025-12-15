@@ -94,6 +94,18 @@ final class BlendShapeLabViewModel {
     load(url: modelURL)
   }
 
+  func clearModel() {
+    isSweepEnabled = false
+    modelURL = nil
+    scene = SCNScene()
+    bindingsByName = [:]
+    morphers = []
+    selectedBlendShapeName = nil
+    sliderValue = 0
+    searchText = ""
+    errorMessage = nil
+  }
+
   func resetAllBlendWeights() {
     for morpher in morphers {
       for i in morpher.weights.indices {

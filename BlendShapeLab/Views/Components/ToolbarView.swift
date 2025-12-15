@@ -18,6 +18,9 @@ struct ToolbarView: View {
       Button("Reload") { model.reload() }
         .disabled(model.modelURL == nil)
 
+      Button("Clear") { model.clearModel() }
+        .disabled(model.modelURL == nil)
+
       Button("Reset All") { model.resetAllBlendWeights() }
         .disabled(!model.hasAnyBlendShapes)
 
