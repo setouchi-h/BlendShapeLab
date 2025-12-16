@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Lint Current File",
+      "type": "shell",
+      "command": "zsh",
+      "args": [
+        "-c",
+        "if [ \"${fileExtname}\" = \".swift\" ]; then xcrun swift-format lint \"${file}\"; fi"
+      ],
+      "problemMatcher": {
+        "owner": "swift-format",
+        "fileLocation": "absolute",
+        "pattern": {
+          "regexp": "^(.*):(\\d+):(\\d+):\\s+(error|warning):\\s+(.*)$",
+          "file": 1,
+          "line": 2,
+          "column": 3,
+          "severity": 4,
+          "message": 5
+        }
+      },
+      "presentation": {
+        "reveal": "silent",
+        "revealProblems": "onProblem"
+      }
+    },
+    {
+      "label": "Format Current File",
+      "type": "shell",
+      "command": "zsh",
+      "args": [
+        "-c",
+        "if [ \"${fileExtname}\" = \".swift\" ]; then xcrun swift-format --in-place \"${file}\"; fi"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}
