@@ -1,17 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "emeraldwalk.runonsave": {
-    "commands": [
-      {
-        "match": ".*\\.swift$",
-        "cmd": "workbench.action.tasks.runTask Format Current File"
-      },
-      {
-        "match": ".*\\.swift$",
-        "cmd": "workbench.action.tasks.runTask Lint Current File"
-      }
-    ]
-  },
   "triggerTaskOnSave.tasks": {
     "Format Current File": ["**/*.swift"],
     "Lint Current File": ["**/*.swift"]
@@ -20,5 +8,5 @@
   "swift.swiftEnvironmentVariables": {
     "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
   },
-  "sweetpad.build.xcodeWorkspacePath": "frontend/Humanoid-VisionOS.xcodeproj/project.xcworkspace"
+  "sweetpad.build.xcodeWorkspacePath": "BlendShapeLab.xcodeproj/project.xcworkspace"
 }
