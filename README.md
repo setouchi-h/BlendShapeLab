@@ -18,20 +18,26 @@ Perfect for 3D artists and developers who want to quickly inspect facial express
 
 `.usdz` `.usd` `.usda` `.usdc`
 
-## Getting Started
+## Installation
 
-### Requirements
+### Download (Recommended)
 
+1. Go to [Releases](https://github.com/setouchi-h/BlendShapeLab/releases)
+2. Download the latest `BlendShapeLab.dmg`
+3. Open the DMG and drag BlendShapeLab to your Applications folder
+
+### Build from Source
+
+Requirements:
 - macOS 14.0+
 - Xcode 16.0+
 
-### Build & Run
-
+Steps:
 1. Clone this repository
 2. Open `BlendShapeLab.xcodeproj` in Xcode
 3. Build and run the `BlendShapeLab` target
 
-### Usage
+## Usage
 
 1. Open a file with `⌘O` or drag & drop onto the window
 2. Select a blendshape from the list
