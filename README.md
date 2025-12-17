@@ -4,7 +4,7 @@ A lightweight macOS tool for interactively previewing **blendshapes (morph targe
 
 Perfect for 3D artists and developers who want to quickly inspect facial expressions, body morphs, or any blendshape-driven animations without opening heavy 3D software.
 
-<!-- ![Demo](screenshots/demo.gif) -->
+https://github.com/user-attachments/assets/d71a8d18-3da1-4cdc-9fda-9f2218796be1
 
 ## Features
 
