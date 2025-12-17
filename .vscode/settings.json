@@ -1,17 +1,5 @@
 {
   "editor.formatOnSave": true,
-  "emeraldwalk.runonsave": {
-    "commands": [
-      {
-        "match": ".*\\.swift$",
-        "cmd": "workbench.action.tasks.runTask Format Current File"
-      },
-      {
-        "match": ".*\\.swift$",
-        "cmd": "workbench.action.tasks.runTask Lint Current File"
-      }
-    ]
-  },
   "triggerTaskOnSave.tasks": {
     "Format Current File": ["**/*.swift"],
     "Lint Current File": ["**/*.swift"]

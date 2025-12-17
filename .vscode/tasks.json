@@ -34,7 +34,10 @@
         "-c",
         "if [ \"${fileExtname}\" = \".swift\" ]; then xcrun swift-format --in-place \"${file}\"; fi"
       ],
-      "problemMatcher": []
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "silent"
+      }
     }
   ]
 }
