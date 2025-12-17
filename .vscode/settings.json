@@ -20,5 +20,5 @@
   "swift.swiftEnvironmentVariables": {
     "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"
   },
-  "sweetpad.build.xcodeWorkspacePath": "frontend/Humanoid-VisionOS.xcodeproj/project.xcworkspace"
+  "sweetpad.build.xcodeWorkspacePath": "BlendShapeLab.xcodeproj/project.xcworkspace"
 }
